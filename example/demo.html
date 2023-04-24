@@ -1,0 +1,188 @@
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+<script src="../dist/bundle.js"></script>
+
+<div id="editorjs"></div>
+
+<button id="save-button">Save</button>
+<pre id="output"></pre>
+
+<script>
+    const editor = new EditorJS({
+        autofocus: true,
+        tools: {
+            header: Header,
+            toc: TOC,
+        },
+        data: {
+            time: 1550476186479,
+            version: "2.26.5",
+            blocks: [
+            {
+                    "id": "Jx6gz2I-OZ",
+                    "type": "paragraph",
+                    "data": {
+                        "text": ""
+                    }
+                },
+                {
+                    "id": "Jx6gz2I-OZ",
+                    "type": "header",
+                    "data": {
+                        "text": "Sollicitudin Eros Molestie",
+                        "level": 1
+                    }
+                },
+                {
+                    "id": "VVJ-XzT0sn",
+                    "type": "header",
+                    "data": {
+                        "text": "Lobortis Lorem Sem Fames Tortor Inceptos Nec",
+                        "level": 2
+                    }
+                },
+                {
+                    "id": "GrXoS86P6O",
+                    "type": "paragraph",
+                    "data": {
+                        "text": "Inceptos. Curae; urna cubilia quam lobortis lacus vivamus pellentesque conubia. In."
+                    }
+                },
+                {
+                    "id": "8MqgLR33mD",
+                    "type": "header",
+                    "data": {
+                        "text": "Curae;",
+                        "level": 3
+                    }
+                },
+                {
+                    "id": "aGjuvt0JAj",
+                    "type": "paragraph",
+                    "data": {
+                        "text": "Mi rhoncus hendrerit. Cum accumsan dolor sodales pellentesque parturient aptent nostra parturient."
+                    }
+                },
+                {
+                    "id": "xkHtkL9vK0",
+                    "type": "header",
+                    "data": {
+                        "text": "Venenatis Et Quisque Fermentum Nibh Felis Quis Interdum",
+                        "level": 3
+                    }
+                },
+                {
+                    "id": "P4lD12eJ1l",
+                    "type": "paragraph",
+                    "data": {
+                        "text": "Consectetuer blandit fringilla mi dolor imperdiet."
+                    }
+                },
+                {
+                    "id": "JLH68ohDOr",
+                    "type": "header",
+                    "data": {
+                        "text": "Orci Habitant Dui Inceptos Lacus",
+                        "level": 2
+                    }
+                },
+                {
+                    "id": "RYfk9jIiAC",
+                    "type": "paragraph",
+                    "data": {
+                        "text": "Mattis dictum diam aliquam nisl nibh quis natoque maecenas."
+                    }
+                },
+                {
+                    "id": "JAFlrsEPbJ",
+                    "type": "header",
+                    "data": {
+                        "text": "Dis Molestie Malesuada Fames Inceptos At Aenean Erat",
+                        "level": 3
+                    }
+                },
+                {
+                    "id": "s7m7ppgLcD",
+                    "type": "paragraph",
+                    "data": {
+                        "text": "Donec rutrum ridiculus per proin cum rhoncus natoque fermentum."
+                    }
+                },
+                {
+                    "id": "eBNd9xo9DC",
+                    "type": "paragraph",
+                    "data": {
+                        "text": "Fusce suspendisse curae; ultricies leo, a."
+                    }
+                },
+                {
+                    "id": "fu5v06msQZ",
+                    "type": "paragraph",
+                    "data": {
+                        "text": "Tempor commodo ultricies sociosqu. Id justo integer ipsum."
+                    }
+                },
+                {
+                    "id": "ASRlqW4rst",
+                    "type": "paragraph",
+                    "data": {
+                        "text": "Gravida. Ornare cras A. Pellentesque vulputate."
+                    }
+                },
+                {
+                    "id": "mlMu8boC04",
+                    "type": "header",
+                    "data": {
+                        "text": "Rutrum Platea Netus",
+                        "level": 5
+                    }
+                },
+                {
+                    "id": "dpJu_31mrX",
+                    "type": "paragraph",
+                    "data": {
+                        "text": "Cum accumsan turpis. Bibendum. Nibh. Nisl."
+                    }
+                },
+                {
+                    "id": "iEnFpBaCw2",
+                    "type": "paragraph",
+                    "data": {
+                        "text": "Suspendisse orci morbi. Senectus. Elit nec. Mi augue justo rutrum."
+                    }
+                },
+                {
+                    "id": "qALGU3-V_V",
+                    "type": "paragraph",
+                    "data": {
+                        "text": "Consequat gravida eleifend facilisi sollicitudin dignissim ultricies. Varius. Tellus."
+                    }
+                },
+                {
+                    "id": "pXj80lCqL_",
+                    "type": "header",
+                    "data": {
+                        "text": "Interdum Arcu",
+                        "level": 3
+                    }
+                },
+                {
+                    "id": "YxCKU246B-",
+                    "type": "paragraph",
+                    "data": {
+                        "text": "Vestibulum curae;. Curae; nec nisl leo eu sodales."
+                    }
+                },
+            ]
+        }
+
+    });
+    const saveButton = document.getElementById('save-button');
+    const output = document.getElementById('output');
+
+    saveButton.addEventListener('click', () => {
+      editor.save().then( savedData => {
+        output.innerHTML = JSON.stringify(savedData, null, 4);
+      })
+    })
+</script>

@@ -1,0 +1,26 @@
+a:link { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.toc-paragraph {
+    line-height: 0.6;
+}
+
+.toc-l-2 {
+    padding-left: 1.0em;
+}
+
+.toc-l-3 {
+    padding-left: 2.0em;
+}
+
+.toc-l-4 {
+    padding-left: 3.0em;
+}
+
+.toc-l-5 {
+    padding-left: 4.0em;
+}
+
+.toc-l-6 {
+    padding-left: 5.0em;
+}
