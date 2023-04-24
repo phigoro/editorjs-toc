@@ -2,6 +2,9 @@
 
 Table of contents for [Editor.js](https://editorjs.io).
 
+<!-- add gif -->
+![](assets/demo.gif)
+
 ## Installation via NPM
 Get the package
 
