@@ -1,8 +1,8 @@
 {
   "name": "@phigoro/editorjs-toc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Table of contents for EditorJS",
-  "main": "src/index.js",
+  "main": "./dist/bundle.js",
   "scripts": {
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"

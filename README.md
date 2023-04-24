@@ -51,6 +51,7 @@ const editor = EditorJS({
 | text | `string` | TOC item text |
 | level | `number` | TOC item level |
 
+## Example
 ```json
 {
   "id": "PYMEXBjCit",
