@@ -68,7 +68,8 @@ export default class TOC {
   }
 
   _createTOC() {
-
+      const url = new URL(window.location.href);
+      const href = url.origin+url.search;
       const headings = this.data.items;
 
       var divElement = document.createElement('div');
@@ -93,7 +94,7 @@ export default class TOC {
           var a = document.createElement('a');
 
           // set href attribute
-          a.setAttribute('href', '#' + heading.reference);
+          a.setAttribute('href', href+'#'+heading.reference);
 
           // add paragraph element to anchor element
           a.appendChild(p);
