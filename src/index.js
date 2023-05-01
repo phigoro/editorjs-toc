@@ -30,6 +30,10 @@ export default class TOC {
       this._createTOC();
       return this.wrapper;
   }
+  
+  static get isReadOnlySupported() {
+    return true
+  }
 
   _getHeadings() {
       this.data.items = [];
