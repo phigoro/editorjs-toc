@@ -82,33 +82,8 @@ export default class TOC {
           // add class to paragraph element
           p.classList.add('toc-l-' + heading.level);
 
-          var text = "";
-          switch (heading.level) {
-            case 1:
-              text = '•';
-              break;
-            case 2:
-              text = '◦';
-              break;
-            case 3:
-              text = '▪︎';
-              break
-            case 4:
-              text = '▫︎';
-              break
-            case 5:
-              text = '▪︎';
-              break
-            case 6:
-              text = '▫︎';
-              break
-            default:
-              text = '•';
-          }
-          text = text + ' ' + heading.text;
-
           // add text to paragraph element
-          p.innerHTML = text;
+          p.innerHTML = heading.text;
 
           // create anchor element
           var a = document.createElement('a');
