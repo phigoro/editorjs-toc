@@ -94,7 +94,6 @@ export default class TOC {
 
        a.addEventListener('click', (event) => {
          event.preventDefault();
-         console.log(event);
          document.getElementById(event.target.hash.substring(1))?.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
          location.hash = event.target.hash;
        });
