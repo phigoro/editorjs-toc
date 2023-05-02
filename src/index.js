@@ -97,10 +97,11 @@ export default class TOC {
           var a = document.createElement('a');
 
           // set href attribute
-          a.setAttribute('href', href+'#'+heading.reference);
+          a.setAttribute('href', '#'+heading.reference);
           
           a.addEventListener('click', (event) => {
              event.preventDefault();
+             console.log(event.target.hash);
              document.getElementById(event.target.hash.substring(1))?.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
              location.hash = event.target.hash;
           });
