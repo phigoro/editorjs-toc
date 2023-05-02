@@ -7,7 +7,7 @@ a:hover { text-decoration: underline; }
 
 .toc-paragraph {
     display: block;
-    line-height: 0.6;
+    line-height: 2;
 }
 
 .toc-l-1 {

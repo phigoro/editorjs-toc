@@ -74,7 +74,7 @@ export default class TOC {
       const url = new URL(window.location.href);
       const href = url.origin+url.search;
       const headings = this.data.items;
-      this.wrapper.innerHtml = "";
+      this.wrapper.innerHTML = "";
 
       if (headings.length < 1) {
         var message = '<p>No headings found</p>';
