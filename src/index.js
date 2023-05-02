@@ -72,7 +72,7 @@ export default class TOC {
 
   _createTOC() {
       const url = new URL(window.location.href);
-      const href = url.origin+url.search;
+      const href = "/"+url.search;
       const headings = this.data.items;
       this.wrapper.innerHTML = "";
 
