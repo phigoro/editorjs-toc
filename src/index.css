@@ -1,8 +1,16 @@
 a:link { text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+.toc-wrapper {
+  padding: 0.6em 0 3px;
+}
+
 .toc-paragraph {
     line-height: 0.6;
+}
+
+.toc-l-1 {
+    padding-left: 0;
 }
 
 .toc-l-2 {

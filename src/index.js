@@ -13,15 +13,18 @@ export default class TOC {
       };
   }
 
-  constructor({data, api}){
+  constructor({data, api, block}){
       this.api = api;
       this.data = data;
+      this.block = block;
       this.wrapper = undefined;
       this.data.items = data.items || [];
   }
 
   render(){
       this.wrapper = document.createElement('div');
+      this.wrapper.id = this.block.id;
+      this.wrapper.classList.add('toc-wrapper');
 
       if (this.data.items.length < 1) {
           this._getHeadings();
