@@ -95,6 +95,12 @@ export default class TOC {
 
           // set href attribute
           a.setAttribute('href', href+'#'+heading.reference);
+          
+          a.addEventListener('click', (event) => {
+             event.preventDefault();
+             document.getElementById(event.target.hash.substring(1))?.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
+             location.hash = event.target.hash;
+          });
 
           // add paragraph element to anchor element
           a.appendChild(p);
