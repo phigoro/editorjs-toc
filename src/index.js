@@ -74,48 +74,33 @@ export default class TOC {
       const url = new URL(window.location.href);
       const href = url.origin+url.search;
       const headings = this.data.items;
-
-      var divElement = document.createElement('div');
+      this.wrapper.innerHtml = "";
 
       if (headings.length < 1) {
         var message = '<p>No headings found</p>';
-        divElement.innerHTML = message;
-      } else {
-        for (const heading of headings) {
-
-          // create paragraph element
-          var p = document.createElement('p');
-          p.classList.add('toc-paragraph');
-
-          // add class to paragraph element
-          p.classList.add('toc-l-' + heading.level);
-
-          // add text to paragraph element
-          p.innerHTML = heading.text;
-
-          // create anchor element
-          var a = document.createElement('a');
-
-          // set href attribute
-          a.setAttribute('href', '#'+heading.reference);
-          
-          a.addEventListener('click', (event) => {
-             event.preventDefault();
-             console.log(event.target.hash);
-             document.getElementById(event.target.hash.substring(1))?.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
-             location.hash = event.target.hash;
-          });
-
-          // add paragraph element to anchor element
-          a.appendChild(p);
-
-          // add anchor element to toc
-          divElement.appendChild(a);
-        }
+        this.wrapper.innerHTML = message;
+        return;
       }
+     for (const heading of headings) {
+       // create anchor element
+       var a = document.createElement('a');
+       a.classList.add('toc-paragraph', 'toc-l-' + heading.level);
 
-      this.wrapper.innerHTML = '';
-      this.wrapper.appendChild(divElement);
+       // add text to paragraph element
+       a.textContent = heading.text;
+
+       // set href attribute
+       a.setAttribute('href', href+'#'+heading.reference);
+
+       a.addEventListener('click', (event) => {
+         event.preventDefault();
+         console.log(event);
+         document.getElementById(event.target.hash.substring(1))?.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
+         location.hash = event.target.hash;
+       });
+
+       this.wrapper.appendChild(a);
+    }
   }
   
   renderSettings() {
