@@ -1,6 +1,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
-<script src="https://cdn.jsdelivr.net/npm/@phigoro/editorjs-toc@1.0.2"></script>
+<script src="../dist/bundle.js"></script>
 
 <div id="editorjs"></div>
 
@@ -14,11 +14,26 @@
             header: Header,
             toc: TOC,
         },
+
+        i18n: {
+            messages: {
+                toolNames: {
+                    "TOC": "Table of contents",
+                },
+                tools: {
+                    "toc": {
+                        'Refresh': "Refresh",
+                        'No headings found': 'No headings found',
+                    }
+                },
+            }
+        },
+
         data: {
             time: 1550476186479,
             version: "2.26.5",
             blocks: [
-            {
+                {
                     "id": "Jx6gz2I-OZ",
                     "type": "paragraph",
                     "data": {
@@ -175,7 +190,6 @@
                 },
             ]
         }
-
     });
     const saveButton = document.getElementById('save-button');
     const output = document.getElementById('output');

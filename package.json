@@ -1,6 +1,6 @@
 {
   "name": "@phigoro/editorjs-toc",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "Table of contents for EditorJS",
   "main": "./dist/bundle.js",
   "scripts": {

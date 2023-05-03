@@ -77,8 +77,12 @@ export default class TOC {
       this.wrapper.innerHTML = "";
 
       if (headings.length < 1) {
-        var message = '<p>No headings found</p>';
-        this.wrapper.innerHTML = message;
+
+        // set proper internationaliztion message
+        var message = document.createElement('p');
+        message.innerHTML = this.api.i18n.t('No headings found');
+
+        this.wrapper.appendChild(message);
         return;
       }
      for (const heading of headings) {
