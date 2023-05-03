@@ -13,15 +13,18 @@ export default class TOC {
       };
   }
 
-  constructor({data, api}){
+  constructor({data, api, block}){
       this.api = api;
       this.data = data;
+      this.block = block;
       this.wrapper = undefined;
       this.data.items = data.items || [];
   }
 
   render(){
       this.wrapper = document.createElement('div');
+      this.wrapper.id = this.block.id;
+      this.wrapper.classList.add('toc-wrapper');
 
       if (this.data.items.length < 1) {
           this._getHeadings();
@@ -29,6 +32,10 @@ export default class TOC {
       
       this._createTOC();
       return this.wrapper;
+  }
+  
+  static get isReadOnlySupported() {
+    return true
   }
 
   _getHeadings() {
@@ -64,68 +71,35 @@ export default class TOC {
   }
 
   _createTOC() {
-
+      const url = new URL(window.location.href);
+      const href = "/"+url.search;
       const headings = this.data.items;
-
-      var divElement = document.createElement('div');
+      this.wrapper.innerHTML = "";
 
       if (headings.length < 1) {
         var message = '<p>No headings found</p>';
-        divElement.innerHTML = message;
-      } else {
-        for (const heading of headings) {
-
-          // create paragraph element
-          var p = document.createElement('p');
-          p.classList.add('toc-paragraph');
-
-          // add class to paragraph element
-          p.classList.add('toc-l-' + heading.level);
-
-          var text = "";
-          switch (heading.level) {
-            case 1:
-              text = '•';
-              break;
-            case 2:
-              text = '◦';
-              break;
-            case 3:
-              text = '▪︎';
-              break
-            case 4:
-              text = '▫︎';
-              break
-            case 5:
-              text = '▪︎';
-              break
-            case 6:
-              text = '▫︎';
-              break
-            default:
-              text = '•';
-          }
-          text = text + ' ' + heading.text;
-
-          // add text to paragraph element
-          p.innerHTML = text;
-
-          // create anchor element
-          var a = document.createElement('a');
-
-          // set href attribute
-          a.setAttribute('href', '#' + heading.reference);
-
-          // add paragraph element to anchor element
-          a.appendChild(p);
-
-          // add anchor element to toc
-          divElement.appendChild(a);
-        }
+        this.wrapper.innerHTML = message;
+        return;
       }
+     for (const heading of headings) {
+       // create anchor element
+       var a = document.createElement('a');
+       a.classList.add('toc-paragraph', 'toc-l-' + heading.level);
 
-      this.wrapper.innerHTML = '';
-      this.wrapper.appendChild(divElement);
+       // add text to paragraph element
+       a.textContent = heading.text;
+
+       // set href attribute
+       a.setAttribute('href', href+'#'+heading.reference);
+
+       a.addEventListener('click', (event) => {
+         event.preventDefault();
+         document.getElementById(event.target.hash.substring(1))?.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
+         location.hash = event.target.hash;
+       });
+
+       this.wrapper.appendChild(a);
+    }
   }
   
   renderSettings() {
