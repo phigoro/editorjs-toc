@@ -95,3 +95,22 @@ const editor = EditorJS({
   }
 }
 ```
+
+## Translation
+Use `i18n` property to translate the tool to your language. Pass an object with translation strings as a parameter.
+
+```javascript
+i18n: {
+    messages: {
+        toolNames: {
+            "TOC": "Table of contents",
+        },
+        tools: {
+            "toc": {
+                'Refresh': "Refresh",
+                'No headings found': 'No headings found',
+            }
+        },
+    }
+},
+```
